@@ -1,0 +1,28 @@
+<SafetyScoreScreen>:
+    name: 'safety_score_screen'
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(10)
+        spacing: dp(10)
+
+        MDLabel:
+            id: safety_score_display
+            text: "Fetching safety score for your location..."
+            font_style: "H4"
+            halign: "center"
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        MDRaisedButton:
+            text: "Go Back to Home"
+            on_release: root.go_to_home_screen()
+            pos_hint: {"center_x": 0.5}
+
+        MDLabel:
+            id: city_display
+            text: ""
+            font_style: "H6"
+            halign: "center"
+            size_hint_y: None
+            height: self.texture_size[1]

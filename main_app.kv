@@ -1,0 +1,57 @@
+<MainAppScreen>:
+    name: 'main_app_screen'
+    canvas.before:
+        Color:
+            rgba: 0.05, 0.08, 0.15, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    FloatLayout:
+        # Title/Header
+        Label:
+            text: 'Emergency Response'
+            font_name: 'Roboto-Bold'
+            font_size: '24sp'
+            pos_hint: {'center_x': 0.5, 'top': 0.95}
+            color: 1, 1, 1, 1
+        
+        # Geofenced Map Placeholder
+        # In a real app, this would be a map widget (e.g., from a third-party library)
+        # For now, we'll use a placeholder to represent the map area.
+        BoxLayout:
+            size_hint: (0.9, 0.6)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+            canvas.before:
+                Color:
+                    rgba: 0.1, 0.15, 0.25, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [dp(20)]
+            
+            Label:
+                text: 'Geofenced Map\n(Placeholder)'
+                font_size: '20sp'
+                color: 0.8, 0.8, 0.8, 1
+                halign: 'center'
+                valign: 'middle'
+
+        # SOS Button
+        Button:
+            text: '[size=32sp][b]SOS[/b][/size]'
+            markup: True
+            color: 1, 1, 1, 1
+            size_hint: (0.35, 0.35)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+            on_press: root.send_sos_notification()
+            background_color: 0, 0, 0, 0
+            
+            # Button design for the SOS button
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 0, 1 # Red for emergency
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [dp(100)]

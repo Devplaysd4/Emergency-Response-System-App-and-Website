@@ -1,0 +1,128 @@
+[
+    {
+        "city": "Guwahati",
+        "state": "Assam",
+        "itinerary": [
+            {"day": 1, "activity": "Visit Kamakhya Temple"},
+            {"day": 2, "activity": "Brahmaputra River Cruise"},
+            {"day": 3, "activity": "Explore Assam State Museum"}
+        ]
+    },
+    {
+        "city": "Shillong",
+        "state": "Meghalaya",
+        "itinerary": [
+            {"day": 1, "activity": "Boating in Umiam Lake"},
+            {"day": 2, "activity": "Explore Elephant Falls"},
+            {"day": 3, "activity": "Visit Shillong Peak"}
+        ]
+    },
+    {
+        "city": "Tawang",
+        "state": "Arunachal Pradesh",
+        "itinerary": [
+            {"day": 1, "activity": "Visit Tawang Monastery"},
+            {"day": 2, "activity": "Explore Sela Pass"},
+            {"day": 3, "activity": "Visit Madhuri Lake"}
+        ]
+    },
+    {
+        "city": "Ziro",
+        "state": "Arunachal Pradesh",
+        "itinerary": [
+            {"day": 1, "activity": "Explore Talley Valley Wildlife Sanctuary"},
+            {"day": 2, "activity": "Visit Meghna Cave Temple"},
+            {"day": 3, "activity": "Trek to Kile Pakho"}
+        ]
+    },
+    {
+        "city": "Majuli",
+        "state": "Assam",
+        "itinerary": [
+            {"day": 1, "activity": "Explore the river island"},
+            {"day": 2, "activity": "Visit Satras (monasteries)"},
+            {"day": 3, "activity": "Enjoy the sunset over the Brahmaputra"}
+        ]
+    },
+    {
+        "city": "Dawki",
+        "state": "Meghalaya",
+        "itinerary": [
+            {"day": 1, "activity": "Boating on the Umngot River"},
+            {"day": 2, "activity": "Visit the India-Bangladesh border"},
+            {"day": 3, "activity": "Explore the nearby village of Mawlynnong"}
+        ]
+    },
+    {
+        "city": "Gangtok",
+        "state": "Sikkim",
+        "itinerary": [
+            {"day": 1, "activity": "Visit Rumtek Monastery"},
+            {"day": 2, "activity": "Explore Tsomgo Lake"},
+            {"day": 3, "activity": "Walk along MG Marg"}
+        ]
+    },
+    {
+        "city": "Cherrapunji",
+        "state": "Meghalaya",
+        "itinerary": [
+            {"day": 1, "activity": "Visit Nohkalikai Falls"},
+            {"day": 2, "activity": "Explore Mawsmai Cave"},
+            {"day": 3, "activity": "Walk on the Double Decker Living Root Bridge"}
+        ]
+    },
+    {
+        "city": "Aizwal",
+        "state": "Mizoram",
+        "itinerary": [
+            {"day": 1, "activity": "Visit Durtlang Hills"},
+            {"day": 2, "activity": "Explore Solomon's Temple"},
+            {"day": 3, "activity": "Shop at Bara Bazar"}
+        ]
+    },
+    {
+        "city": "Imphal",
+        "state": "Manipur",
+        "itinerary": [
+            {"day": 1, "activity": "Visit Loktak Lake"},
+            {"day": 2, "activity": "Explore Kangla Fort"},
+            {"day": 3, "activity": "Visit Ima Keithel (Mother's Market)"}
+        ]
+    },
+    {
+        "city": "Rishikesh",
+        "state": "Uttarakhand",
+        "itinerary": [
+            {"day": 1, "activity": "Visit Laxman Jhula and Ram Jhula"},
+            {"day": 2, "activity": "River Rafting in the Ganges"},
+            {"day": 3, "activity": "Attend Ganga Aarti at Triveni Ghat"}
+        ]
+    },
+    {
+        "city": "Nainital",
+        "state": "Uttarakhand",
+        "itinerary": [
+            {"day": 1, "activity": "Boating in Naini Lake"},
+            {"day": 2, "activity": "Visit Naina Devi Temple"},
+            {"day": 3, "activity": "Explore the Mall Road"}
+        ]
+    },
+    {
+        "city": "Dehradun",
+        "state": "Uttarakhand",
+        "itinerary": [
+            {"day": 1, "activity": "Visit Robber's Cave"},
+            {"day": 2, "activity": "Explore Sahastradhara"},
+            {"day": 3, "activity": "Visit the Forest Research Institute"}
+        ]
+    },
+    {
+        "city": "Mussoorie",
+        "state": "Uttarakhand",
+        "itinerary": [
+            {"day": 1, "activity": "Visit Kempty Falls"},
+            {"day": 2, "activity": "Ride the cable car to Gun Hill"},
+            {"day": 3, "activity": "Walk along Camel's Back Road"}
+        ]
+    }
+]

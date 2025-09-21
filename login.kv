@@ -1,0 +1,80 @@
+#:import Animation kivy.animation.Animation
+#:import BoxLayout kivy.uix.boxlayout.BoxLayout
+
+<LoginScreen>:
+    name: 'login_screen'
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: '20dp'
+        padding: '30dp'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        # App Title and Heading
+        Label:
+            text: 'Secured Yatra!'
+            font_name: 'Roboto-BoldItalic'
+            font_size: '36sp'
+            color: app.theme_cls.text_color
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        Label:
+            text: 'Login to your account.'
+            font_size: '18sp'
+            color: app.theme_cls.text_color
+            size_hint_y: None
+            height: self.texture_size[1]
+        
+        # Spacer
+        BoxLayout:
+            size_hint_y: 0.2
+        
+        # Mobile Number Input
+        TextInput:
+            id: mobile_number_input
+            hint_text: 'Enter Mobile Number'
+            input_type: 'number'
+            font_size: '18sp'
+            size_hint_y: None
+            height: '48dp'
+            background_color: (0, 0, 0, 0) # Transparent background
+            foreground_color: app.theme_cls.text_color
+            multiline: False
+            padding: dp(15), dp(15)
+            cursor_color: app.theme_cls.primary_color
+            hint_text_color: app.theme_cls.text_color
+            canvas.before:
+                Color:
+                    rgba: app.theme_cls.primary_color
+                Line:
+                    width: 1.5
+                    rounded_rectangle: (self.x, self.y, self.width, self.height, dp(24))
+
+        # Login Button
+        Button:
+            text: '[size=24sp][b]Login[/b][/size]'
+            markup: True
+            color: app.theme_cls.text_color
+            size_hint_y: None
+            height: '60dp'
+            on_press: root.login()
+            background_color: (0, 0, 0, 0)
+            
+            canvas.before:
+                Color:
+                    rgba: app.theme_cls.primary_color
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [dp(30)]
+
+        # Back to Registration Button
+        Button:
+            text: 'New user? Register'
+            font_size: '14sp'
+            color: app.theme_cls.text_color
+            size_hint_y: None
+            height: '30dp'
+            on_press: root.manager.current = 'registration_screen'
+            background_color: (0, 0, 0, 0)

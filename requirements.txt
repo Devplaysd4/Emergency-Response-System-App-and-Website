@@ -1,0 +1,11 @@
+kivy
+# kivy_garden.mapview needs to be installed with the garden tool.
+# Run `kivy garden install mapview`
+kivy_garden.mapview
+kivymd
+plyer
+Flask
+gunicorn
+requests
+folium
+geocoder

@@ -1,0 +1,404 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: white;
+  background-color:#ccccff
+
+;
+  line-height: 1.6;
+}
+
+/* Header Hero Section */
+body {
+  margin: 0;
+}
+
+.hero {
+  background-color: white;
+  width: 100%;
+  height: 100px;
+  background-image: url("image.png");  /* left-side background logo */
+  background-size: 110px auto;         /* width 110px, height auto */
+  background-repeat: no-repeat;
+  background-position: 20px center;   /* position background image on left vertically centered */
+  margin: 0;
+  
+  display: flex;                       /* use flex to position child elements */
+  align-items: center;                 /* vertical centering */
+  justify-content: flex-end;           /* push login image to the right */
+  padding: 0 20px;
+             /* horizontal padding inside hero */
+}
+
+/* Login image */
+.hero-login {
+  height: 60px;       /* adjust size of login image */
+  width: auto;
+  cursor: pointer;
+  margin-right: 16px;    /* hand cursor on hover */
+}
+.hero-states{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);   /* horizontal center */
+  height: 75px        ;
+  
+}
+
+
+
+.alert-bar {
+  background-color:black;
+  color: white;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.alert-message {
+  position: absolute;
+  opacity: 0;
+  animation: show 9s infinite; /* 3s × 3 messages = 9s total cycle */
+}
+
+/* Assign each message its slot */
+.alert-message:nth-child(1) { animation-delay: 0s; }
+.alert-message:nth-child(2) { animation-delay: 3s; }
+.alert-message:nth-child(3) { animation-delay: 6s; }
+
+@keyframes show {
+  0%   { opacity: 0; }
+  0%, 33.33%   { opacity: 1; }  /* visible for 1/3 of the cycle */
+  33.34%, 100% { opacity: 0; }  /* hidden otherwise */
+}
+
+
+
+
+
+/* Main Content */
+main {
+       /* take 80% of page width */
+  max-width: 1200px; /* but never get bigger than 1200px */
+  min-height: 600px; /* ensure some height */
+  margin: 0px auto; /* center horizontally with top/bottom margin */
+  padding: 10px;     /* inner spacing */
+   /* optional background */
+  color: white;      /* text color */
+  border-radius: 10px; /* rounded corners */
+}
+
+
+/* Sections */
+section {
+  margin-bottom: 60px;
+  text-align: left-center;  /* center text & buttons */
+}
+
+main h2 {
+  margin-bottom: 2px;
+  font-size: 3rem;
+  color: black;
+}
+main h3 {
+  margin-bottom: 20px ;
+  font-size: 1.1rem;
+  color: black;
+}
+
+.download {
+  position: relative; /* needed for image positioning */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 20px;
+  gap: 40px;
+  overflow: hidden; /* keep floating image inside */
+}
+
+/* Floating SOS image */
+.download-img {
+  position: absolute;
+  width: 120px;
+  animation: floatAround 10s ease-in-out infinite alternate;
+  pointer-events: none; /* so it doesn't block clicks */
+  opacity: 0.9;
+}
+
+@keyframes floatAround {
+  0%   { top: 10%; left: 10%; transform: rotate(0deg) scale(1); }
+  25%  { top: 20%; left: 70%; transform: rotate(15deg) scale(1.1); }
+  50%  { top: 60%; left: 50%; transform: rotate(-10deg) scale(0.95); }
+  75%  { top: 40%; left: 20%; transform: rotate(20deg) scale(1.05); }
+  100% { top: 10%; left: 80%; transform: rotate(-15deg) scale(1); }
+}
+.download-buttons {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  gap: 15px;
+}
+
+.download-buttons button {
+  margin-left:50px ;
+  width: 200px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #4a6cf7, #6a8bff);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(74, 108, 247, 0.3);
+}
+
+.download-buttons button:hover {
+  background: linear-gradient(135deg, #354bc9, #5c73f5);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(74, 108, 247, 0.5);
+}
+
+.download-buttons button:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: 0 2px 8px rgba(74, 108, 247, 0.4);
+
+
+}
+.download-right {
+  flex: 1;
+  padding: 25px;
+  margin-top: 30px;
+  border-radius: 15px 15px 25px 25px;
+  background: linear-gradient(135deg, #000000, #111111);
+  color: #f5f5f5;
+  box-shadow: 0 0 20px rgba(74, 108, 247, 0.4);
+  animation: glowPulse 2.5s ease-in-out infinite alternate;
+
+  max-height: 360px;   /* a little taller to fit scrollbar inside */
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  scrollbar-width: thin;
+  scrollbar-color: #4a6cf7 #000;
+}
+
+/* Keep heading styling */
+.download-right h3 {
+  margin-bottom: 18px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #4a6cf7;
+  text-align: center;
+}
+
+.download-right ul {
+  list-style: none;
+  padding: 0 0 15px 0; /* ⬅️ add bottom padding so scrollbar sits inside */
+  margin: 0;
+  display: inline-flex;
+  gap: 18px;
+}
+
+.download-right ul li {
+  min-width: 160px;
+  font-size: 1rem;
+  color: #ffffff;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(74, 108, 247, 0.15);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.download-right ul li:hover {
+  background: rgba(74, 108, 247, 0.3);
+  transform: translateY(-5px);
+  color: #e0e7ff;
+}
+
+/* Scrollbar (Chrome, Edge, Safari) */
+.download-right::-webkit-scrollbar {
+  height: 12px; /* ⬅️ wider scrollbar inside */
+}
+
+.download-right::-webkit-scrollbar-track {
+  background: #000;
+  border-radius: 10px;
+  margin: 0 15px; /* ⬅️ inset the track so it doesn't touch edges */
+}
+
+.download-right::-webkit-scrollbar-thumb {
+  background: #4a6cf7;
+  border-radius: 10px;
+}
+
+.download-right::-webkit-scrollbar-thumb:hover {
+  background: #354bc9;
+}
+
+.map-hero {
+  text-align: center;
+  padding: 40px 20px;
+  background:  #a8afed;
+  border-radius: 20px;
+}
+
+.map-hero-text h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.map-hero-text p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.map-placeholder {
+  width: 100%;
+  max-width: 900px;
+  height: 400px;
+  margin: 0 auto;
+  border: 2px groove #aaa;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:#ccccff;
+  color:#ccccff;
+  font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+
+.itineraries h3 {
+  text-align: center;
+  color: #ccccff;
+}
+
+.itineraries {
+  padding: 20px;
+  background:black;
+  border-radius: 10px;
+  margin: 60px auto 20px auto;  /* ⬅ adds 60px space above */
+  max-width: 1200px;
+}
+
+.itinerary-row {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;   /* horizontal scroll */
+  padding-bottom: 20px;
+  scrollbar-width: thin;        /* Firefox */
+  scrollbar-color: black #ccccff;   /* thumb + track */
+}
+
+.itinerary-row::-webkit-scrollbar {
+  height: 8px;   /* scrollbar thickness */
+  
+}
+.itinerary-row::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 4px;
+}
+.itinerary-row::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+.itinerary-card {
+  position: relative;
+  min-width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.itinerary-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.itinerary-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.75);
+  color: white;
+  font-size: 13px;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.itinerary-card:hover .overlay {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #ddd;
+}
+
+footer a {
+  color: #666;
+  text-decoration: none;
+  margin: 0 8px;
+}
+footer a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,222 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;  /* disables horizontal scrolling */
+}
+
+
+.hero h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* centers perfectly */
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 48px;
+  color: black;
+}
+
+.hero {
+    
+  background-color: white;
+  width: 100%;
+  height: 100px;
+  background-image: url("image.png");  /* left-side background logo */
+  background-size: 110px auto;         /* width 110px, height auto */
+  background-repeat: no-repeat;
+  background-position: 20px center;   /* position background image on left vertically centered */
+  margin: 0;
+  
+  display: flex;                       /* use flex to position child elements */
+  align-items: center;                 /* vertical centering */
+  justify-content: flex-end;           /* push login image to the right */
+  padding: 0 20px;
+  border-bottom: 5px solid black;           /* horizontal padding inside hero */
+}
+
+/* home image */
+.hero-home {
+  height: 50px;       /* adjust size of login image */
+  width: auto;
+  cursor: pointer;
+  padding-right: 60px;    /* hand cursor on hover */
+}
+.dashboard {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* left side = heatmaps, right side = alerts */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.heatmap, .alerts {
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.heatmap-box {
+  background: #f2f2f2;
+  border: 1px dashed #999;
+  border-radius: 8px;
+  height: 250px;         /* placeholder height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  margin-top: 10px;
+}
+
+#map {
+  height: 400px; /* Give the map a defined height */
+}
+
+#risk-zone-list {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.risk-zone-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+.remove-btn {
+  padding: 2px 5px;
+  border: 1px solid #ccc;
+  background: #f44336;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.map-controls {
+  margin-bottom: 10px;
+}
+
+.map-controls button {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+
+.map-controls button.active {
+  background: #ddd;
+  font-weight: bold;
+}
+
+.coord-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.coord-form input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+.coord-form button {
+  padding: 8px 12px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.coord-form button:hover {
+  background: #333;
+}
+
+.alerts {
+  grid-row: span 2; /* alerts box takes full right column height */
+}
+
+.alert-box {
+  max-height: 600px;
+  overflow-y: auto;
+  padding: 10px;
+  background: #f8f8f8;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+/* Anomaly reports larger */
+.anomaly-reports .report-box {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.anomaly-reports .report-image {
+  flex: 1;
+  min-height: 250px; /* ensure enough room for image */
+}
+
+.report-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.report-content {
+    display: flex;
+    gap: 10px;
+}
+
+.report-details {
+    padding: 10px;
+}
+
+.report-image img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Modal styles */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+  max-width: 500px;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

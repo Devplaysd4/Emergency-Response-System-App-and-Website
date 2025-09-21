@@ -1,0 +1,171 @@
+#:import Animation kivy.animation.Animation
+#:import Clock kivy.clock.Clock
+#:import MapView kivy_garden.mapview.MapView
+#:import MDCard kivymd.uix.card.MDCard
+#:import MDIconButton kivymd.uix.button.MDIconButton
+#:import MDSeparator kivymd.uix.card.card.MDSeparator
+#:import ClickableBoxLayout amain.ClickableBoxLayout
+
+<HomeScreen>:
+    name: 'home_screen'
+
+    RelativeLayout:
+
+        # Top content
+        BoxLayout:
+            orientation: 'vertical'
+            pos_hint: {'top': 1}
+            size_hint_y: None
+            height: dp(280)
+            spacing: dp(10)
+            padding: dp(10)
+
+            # Section 1: Top Bar
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: dp(50)
+                spacing: dp(10)
+
+                # Profile Picture (circular button)
+                Button:
+                    size_hint: None, None
+                    size: dp(50), dp(50)
+                    background_normal: ''
+                    background_down: ''
+                    on_press: root.toggle_side_menu()
+                    canvas.before:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        Ellipse:
+                            source: 'pfp.png'
+                            pos: self.pos
+                            size: self.size
+
+                # Alerts Label
+                Label:
+                    id: alerts_label
+                    text: 'Loading alerts...'
+                    font_size: '16sp'
+                    text_size: self.width, None
+                    color: app.theme_cls.primary_color
+
+            # Section 2: Middle Content
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: dp(220) # Fixed height for this section
+                spacing: dp(10)
+
+                # Left side (Icons)
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_x: 0.3
+                    spacing: dp(10)
+                    
+                    AnchorLayout:
+                        anchor_x: 'center'
+                        MDIconButton:
+                            icon: 'camera'
+                            on_press: root.start_anomaly_report()
+
+                    AnchorLayout:
+                        anchor_x: 'center'
+                        MDIconButton:
+                            icon: 'chart-line'
+                            on_press: root.go_to_safety_score_screen()
+
+                # Right side (Itinerary Panel)
+                AnchorLayout:
+                    anchor_x: 'center'
+                    anchor_y: 'center'
+                    size_hint_x: 0.7
+                    
+                    MDCard:
+                        id: itinerary_panel
+                        orientation: 'vertical'
+                        radius: [0, 0, 0, 0] # No rounded corners
+                        padding: dp(8)
+                        spacing: dp(8)
+
+                        ClickableBoxLayout:
+                            size_hint_y: None
+                            height: self.minimum_height
+                            on_release: root.go_to_itinerary_list()
+                            MDLabel:
+                                id: itinerary_title_label
+                                text: "Select an Itinerary"
+                                halign: 'center'
+                                font_style: 'H6'
+                                size_hint_y: None
+                                height: self.texture_size[1]
+                                text_size: self.width, None
+                        
+                        MDSeparator:
+                            height: dp(1)
+                            size_hint_x: 0.9
+                            pos_hint: {'center_x': 0.5}
+
+                        ScrollView:
+                            id: itinerary_scroll
+                            RelativeLayout:
+                                size_hint_y: None
+                                height: max(itinerary_scroll.height, itinerary_summary_layout.height)
+                                GridLayout:
+                                    id: itinerary_summary_layout
+                                    cols: 1
+                                    spacing: dp(5)
+                                    size_hint: 1, None
+                                    height: self.minimum_height
+                                    pos_hint: {'center_y': .5}
+
+        # Section 4: Map
+        RelativeLayout:
+            size_hint: 0.9, 0.4
+            pos_hint: {'center_x': 0.5, 'y': 0}
+
+            RelativeLayout: # Wrapper for map masking
+                size_hint: 1, 1
+                canvas.before:
+                    StencilPush
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [dp(20), dp(20), dp(20), dp(20)]
+                    StencilUse
+                canvas.after:
+                    StencilUnUse
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [dp(20), dp(20), dp(20), dp(20)]
+                    StencilPop
+                MapView:
+                    id: map_view
+                    size_hint: None, None
+                    size: self.parent.size
+                    pos: self.parent.pos
+                    zoom: 11
+                    lat: 28.6139
+                    lon: 77.2090
+
+        # Section 3: SOS Button
+        AnchorLayout:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size_hint: None, None
+            size: '150dp', '60dp'
+            
+            Button:
+                text: 'SOS'
+                font_size: '32sp'
+                bold: True
+                size: self.parent.size
+                background_color: (0, 0, 0, 0)
+                on_press: root.send_sos_notification()
+                canvas.before:
+                    Color:
+                        rgba: (1, 0, 0, 0.9)
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [20]

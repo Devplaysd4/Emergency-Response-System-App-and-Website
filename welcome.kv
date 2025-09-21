@@ -1,0 +1,49 @@
+#:import Animation kivy.animation.Animation
+
+<WelcomeScreen>:
+    name: 'welcome_screen'
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: '20dp'
+        padding: '30dp'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        # App Title/Welcome Message
+        Label:
+            text: 'Welcome to the Emergency Response App'
+            font_name: 'Roboto-BoldItalic'
+            font_size: '36sp'
+            color: app.theme_cls.text_color
+            halign: 'center'
+
+        # Sub-heading
+        Label:
+            text: 'Your safety is our priority. Please login or register to continue.'
+            font_size: '18sp'
+            color: app.theme_cls.text_color
+            halign: 'center'
+            
+        # Spacer
+        BoxLayout:
+            size_hint_y: 0.2
+
+        # Login Button
+        Button:
+            text: 'Login'
+            size_hint: (0.8, None)
+            height: '60dp'
+            pos_hint: {'center_x': 0.5}
+            on_press: root.manager.current = 'login_screen'
+            background_color: app.theme_cls.primary_color
+            color: app.theme_cls.text_color
+
+        # Registration Button
+        Button:
+            text: 'Register'
+            size_hint: (0.8, None)
+            height: '60dp'
+            pos_hint: {'center_x': 0.5}
+            on_press: root.manager.current = 'registration_screen'
+            background_color: app.theme_cls.primary_color
+            color: app.theme_cls.text_color

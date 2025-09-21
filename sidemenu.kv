@@ -1,0 +1,23 @@
+#:import MDIconButton kivymd.uix.button.MDIconButton
+
+<SideMenu>:
+    orientation: 'vertical'
+    size_hint_x: None
+    width: dp(56)
+    pos_hint: {'x': -1}
+    md_bg_color: app.theme_cls.bg_dark
+            
+    MDIconButton:
+        icon: "account"
+        on_press: app.go_to_profile()
+        pos_hint: {'center_x': 0.5}
+        
+    MDIconButton:
+        icon: "theme-light-dark"
+        on_press: app.switch_theme()
+        pos_hint: {'center_x': 0.5}
+
+    MDIconButton:
+        icon: "logout"
+        on_press: app.logout()
+        pos_hint: {'center_x': 0.5}

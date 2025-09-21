@@ -1,0 +1,118 @@
+#:import Animation kivy.animation.Animation
+
+<RegistrationScreen>:
+    name: 'registration_screen'
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: '10dp'
+        padding: '30dp'
+        
+        # App Title
+        Label:
+            text: 'Secured Yatra!'
+            font_name: 'Roboto-BoldItalic'
+            font_size: '36sp'
+            color: app.theme_cls.text_color
+            size_hint_y: None
+            height: self.texture_size[1]
+            padding: [0, 20]
+
+        # Registration Heading
+        Label:
+            text: 'Create your Digital Tourist ID'
+            font_size: '18sp'
+            color: app.theme_cls.text_color
+            size_hint_y: None
+            height: self.texture_size[1]
+            padding: [0, 20]
+
+        # Mobile Number Input
+        TextInput:
+            id: mobile_number_input
+            hint_text: 'Enter Mobile Number'
+            input_type: 'number'
+            font_size: '18sp'
+            size_hint_y: None
+            height: '48dp'
+            background_color: (0, 0, 0, 0)
+            foreground_color: app.theme_cls.text_color
+            multiline: False
+            padding: dp(15), dp(15)
+            cursor_color: app.theme_cls.primary_color
+            hint_text_color: app.theme_cls.text_color
+            canvas.before:
+                Color:
+                    rgba: app.theme_cls.primary_color
+                Line:
+                    width: 1.5
+                    rounded_rectangle: (self.x, self.y, self.width, self.height, dp(24))
+
+        # KYC Input (Aadhaar/Passport)
+        TextInput:
+            id: kyc_input
+            hint_text: 'Enter Aadhaar/Passport Number'
+            font_size: '18sp'
+            size_hint_y: None
+            height: '48dp'
+            background_color: (0, 0, 0, 0)
+            foreground_color: app.theme_cls.text_color
+            multiline: False
+            padding: dp(15), dp(15)
+            cursor_color: app.theme_cls.primary_color
+            hint_text_color: app.theme_cls.text_color
+            canvas.before:
+                Color:
+                    rgba: app.theme_cls.primary_color
+                Line:
+                    width: 1.5
+                    rounded_rectangle: (self.x, self.y, self.width, self.height, dp(24))
+
+        # Emergency Contact Input
+        TextInput:
+            id: emergency_contact_input
+            hint_text: 'Emergency Contact Number'
+            input_type: 'number'
+            font_size: '18sp'
+            size_hint_y: None
+            height: '48dp'
+            background_color: (0, 0, 0, 0)
+            foreground_color: app.theme_cls.text_color
+            multiline: False
+            padding: dp(15), dp(15)
+            cursor_color: app.theme_cls.primary_color
+            hint_text_color: app.theme_cls.text_color
+            canvas.before:
+                Color:
+                    rgba: app.theme_cls.primary_color
+                Line:
+                    width: 1.5
+                    rounded_rectangle: (self.x, self.y, self.width, self.height, dp(24))
+
+        # Register Button
+        Button:
+            text: '[size=24sp][b]Register[/b][/size]'
+            markup: True
+            color: app.theme_cls.text_color
+            size_hint_y: None
+            height: '60dp'
+            on_press: root.register()
+            background_color: (0, 0, 0, 0)
+            
+            canvas.before:
+                Color:
+                    rgba: app.theme_cls.primary_color
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [dp(30)]
+
+        # Back to Login Button
+        Button:
+            text: 'Already have an account? Login'
+            font_size: '14sp'
+            color: app.theme_cls.text_color
+            size_hint_y: None
+            height: '30dp'
+            on_press: root.manager.current = 'login_screen'
+            background_color: (0, 0, 0, 0)

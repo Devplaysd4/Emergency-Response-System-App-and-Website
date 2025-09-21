@@ -1,0 +1,59 @@
+<ProfileScreen>:
+    name: 'profile_screen'
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '30dp'
+        spacing: '20dp'
+
+        # Profile Picture
+        Image:
+            id: profile_image
+            source: 'logo.png'
+            size_hint_y: None
+            height: '150dp'
+            canvas.before:
+                Color:
+                    rgba: app.theme_cls.primary_color
+                Ellipse:
+                    size: (min(self.width, self.height), min(self.width, self.height))
+                    pos: (self.center_x - min(self.width, self.height) / 2, self.center_y - min(self.width, self.height) / 2)
+        
+        Button:
+            text: 'Change Picture'
+            size_hint_y: None
+            height: '40dp'
+            on_press: root.change_profile_picture()
+            background_color: app.theme_cls.primary_color
+            color: app.theme_cls.text_color
+
+        # User Info
+        Label:
+            text: 'Mobile Number:'
+            color: app.theme_cls.text_color
+        Label:
+            id: mobile_label
+            text: ''
+            color: app.theme_cls.text_color
+        Label:
+            text: 'KYC Number:'
+            color: app.theme_cls.text_color
+        Label:
+            id: kyc_label
+            text: ''
+            color: app.theme_cls.text_color
+        Label:
+            text: 'Blockchain ID:'
+            color: app.theme_cls.text_color
+        Label:
+            id: blockchain_id_label
+            text: ''
+            color: app.theme_cls.text_color
+        
+        Button:
+            text: 'Back to Home'
+            size_hint_y: None
+            height: '50dp'
+            on_press: root.manager.current = 'home_screen'
+            background_color: app.theme_cls.primary_color
+            color: app.theme_cls.text_color

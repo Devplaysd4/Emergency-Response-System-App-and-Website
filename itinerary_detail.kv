@@ -1,0 +1,28 @@
+<ItineraryDetailScreen>:
+    name: 'itinerary_detail_screen'
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(10)
+        spacing: dp(10)
+
+        MDLabel:
+            id: city_name_label
+            text: "Itinerary for"
+            font_style: "H4"
+            halign: "center"
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        ScrollView:
+            GridLayout:
+                id: itinerary_details_layout
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: dp(10)
+
+        MDRaisedButton:
+            text: "Select this Itinerary"
+            on_press: root.select_itinerary()
+            pos_hint: {'center_x': 0.5}

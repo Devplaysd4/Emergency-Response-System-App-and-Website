@@ -1,0 +1,18 @@
+#:import Animation kivy.animation.Animation
+
+<SplashScreen>:
+
+    FloatLayout:
+        Image:
+            id: logo_image
+            source: 'logo.png'
+            size_hint: (None, None)
+            size: (dp(150), dp(150))
+            pos_hint: {'center_x': 0.5, 'center_y': 0.55 + root.logo_y_offset}
+            fit_mode: "contain"
+            
+        Label:
+            text: "Loading..."
+            font_size: '18sp'
+            color: app.theme_cls.text_color
+            pos_hint: {'center_x': 0.5, 'center_y': 0.35}
